@@ -1,6 +1,8 @@
 const path = require('path')
+const fs = require('fs');
 
 const express = require('express')
+const { fstat } = require('fs')
 //exports all express function...
 const app = express()
 
@@ -38,6 +40,7 @@ app.get('/form', (req, res) => {
 // * Create a set of routes for getting and posting table data
 app.get('/api/tables', (req, res) => {
     res.json(tables)
+   
 })
 
 
