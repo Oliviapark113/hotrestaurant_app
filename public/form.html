@@ -39,6 +39,7 @@
                     <input type="uniqueId" class="form-control" id="uniqueId">
                 </div>
                 <button type="submit" id="submit" class="btn btn-primary m-3">Submit</button>
+                <button type="reset" id="reset" class="btn btn-primary m-3">Reset</button>
             </form>
           </div>
     </div>
@@ -50,8 +51,10 @@ const phoneNumber = $("#phoneNumber")
 const email = $("#email")
 const uniqueId = $("#uniqueId")
 const button = $("#submit")
+const reset = $("#reset")
 
 button.on("click", e=>{
+   
    e.preventDefault()
 
    const data = {
@@ -61,7 +64,7 @@ button.on("click", e=>{
         uniqueId: uniqueId.val(),
        
       }
-
+    
    $.ajax({
        url:'/api/tables',
        method: 'POST',
@@ -73,7 +76,23 @@ button.on("click", e=>{
    }).catch(err =>{
        console.log("You got error" + err)
    })
+   
+   
 })
+
+reset.on("click", ()=>{
+    clearData()
+})
+
+function clearData(){
+     name.html("")
+     phoneNumber.html("")
+     email.html("")
+     uniqueId.html("")
+
+}
+
+
 
 
 </script>

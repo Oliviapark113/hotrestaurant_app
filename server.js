@@ -59,7 +59,7 @@ app.post('/api/tables', (req, res) => {
     else if (tables.length >= 6) {
 
         waitlist.push(newTable)
-
+        console.log(waitlist)
     }
 
     res.status(200).send()
